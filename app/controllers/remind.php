@@ -11,27 +11,46 @@ class Remind extends Controller {
 			
 			print_r ($item);
 			
-			//$this->view('remind/view', ['item' => $item] );
-			die;
-		}
-		
-		$this->view('remind/index', [
+			$this->view('remind/view', ['message' => $message, 'values' => $data] );
+		}else {
+			$this->view('remind/index', [
 		'list' => $list
 		] );
+		}
+		
+		
     }
 	
 	public function update($id) {
 		$r = $this->model('Reminders');
-        $item = $r->get_reminder($id);
+       if($_server request_method == post){
+		   $id = $_POST['id'];
+		   $subject =$_POST['subject'];
+		    $description =$_POST['description'];
+			$message ="update record success";
+			$this-> view ('remind/update',['message' => $message]);
+	   }else{
+		   if (isset ($id)) {
+			   $this ->view('remind/creat');
 		
-		$this->view('remind/update', ['item' => $item] );
+		   }
+		   
 			
     }
 	
 	public function remove($id = '') {
 		$r = $this->model('Reminders');
-		$r->removeItem($id);
-		header('Location:/remind');
+		
+		if(isset($id)) {
+			$r ->delete($id);
+			$messsage = "delteting successfully";
+			$list = $remiend-> readall();
+		}else{
+			$message = "delete the record";
+			
+		
+		$this->view ('home/index', ['message' =>$message]);
+		
     }
 	
 	public function create() {

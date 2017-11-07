@@ -23,19 +23,7 @@
   <body bgcolor="#A9A9A9">   </P> 
   <head>
 <style>
-.button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-	
-}
+
 </style>
 </head>
 
@@ -50,8 +38,9 @@
 
             <input type="password" name="password" id="password"><br/>
 
-            <a href="#" class="button"  name"login">login</a>
-			 <a href="#" class="button"  name"attempt">attempt!</a>
+       
+			  <input type="submit" value="Log In!">
+			  <input type="submit" name ="attempt" value="attempt!">
 			 
 			  <a href="/login/register"> sign up!</a>
 			
