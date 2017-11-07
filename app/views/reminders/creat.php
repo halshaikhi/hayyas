@@ -13,7 +13,7 @@
 
   <div class="row">
   <div class="col-sm-4">.col-sm-4
-  <h3> enter reminder info</h3>
+  <h3> enter reminder information</h3>
 <form> 
 
 Subject:
@@ -21,7 +21,7 @@ Subject:
 Description:
 <input type="text" name="description"><br><br>>
 
-<button type="submit"> Update </button>
+<input type= submit" name="save" value="save">
 
 </form>
 </div>
