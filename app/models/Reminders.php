@@ -32,7 +32,10 @@ class Reminders {
 		$db = db_connect();
 
         $statement = $db->prepare("UPDATE reminders SET deleted = 1 WHERE id = :id");
-        $statement->bindValue(':id', $id);
+            $statement->bindValue(':id', $id);
+		    $statement->bindValue(':subject', $subject);
+	        $statement->bindValue(':descrption', $descrption);
+    	    $_SESSION['username'] = $username;
         $statement->execute();
 
 	}
@@ -80,11 +83,14 @@ class Reminders {
             $statement = $db->prepare("INSERT INTO users (username, password_hash)"
                     . " VALUES (:username, :password_hash); ");
 
-            $statement->bindValue(':username', $username);
+            $statement->bindValue(':id', $id);
+		    $statement->bindValue(':subject', $subject);
+	        $statement->bindValue(':descrption', $descrption);
+    	    $_SESSION['username'] = $username;
             $statement->bindValue(':password_hash', $password);
             $statement->execute();
             $_SESSION['register_complete'] = true;
-            $_SESSION['username'] = $username;
+           
         }
 	}
 	
